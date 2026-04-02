@@ -163,7 +163,6 @@
         async function checkDuplicateAndSubmit() {
             const barangay = document.getElementById('barangay').value;
             const contact_no = document.getElementById('contact_no').value;
-            const email = document.querySelector('input[name="email"]').value;
 
             if (!barangay || !contact_no || !email) {
                 alert("Please select a Barangay, enter Contact Number, and provide Email");
@@ -181,13 +180,13 @@
 
                 if (data.exists) {
                     // POP UP WINDOW MESSAGE as requested
-                    alert("This Email, Barangay and Contact Number already being used");
+                    alert("This Barangay and Contact Number already being used");
                 } else {
                     // No duplicate → submit the form normally
                     document.getElementById('signupForm').submit();
                 }
             } catch (error) {
-                alert("This Email, Barangay and Contact Number already being used. Please try again.");
+                alert("This Barangay and Contact Number already being used. Please try again.");
             }
         } 
     </script>

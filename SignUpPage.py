@@ -175,13 +175,12 @@ def check_duplicate():
     data = request.get_json()
     barangay = data.get('barangay')
     contact_no = data.get('contact_no')
-    email = data.get('email')
 
     conn = get_db_connection()
     try:
         existing = conn.execute(
-            "SELECT * FROM users WHERE barangay = ? AND contact_no = ? AND email = ?", 
-            (barangay, contact_no, email)
+            "SELECT * FROM users WHERE barangay = ? AND contact_no = ?", 
+            (barangay, contact_no)
         ).fetchone()
         return jsonify({'exists': existing is not None})
     finally:
