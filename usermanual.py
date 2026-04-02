@@ -232,7 +232,9 @@ def check_email_duplicate():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     socketio.run(app, host="0.0.0.0", port=port, debug=True, allow_unsafe_werkzeug=True)
-else:
-    # This is for production (Gunicorn)
-    # No need to run socketio.run() here — Gunicorn + eventlet handles it
+    # For Fly.io production
+if os.environ.get('FLY_APP_NAME'):
+    # Use gunicorn + eventlet on Fly.io
+    from gunicorn.app.base import BaseApplication
+    # (Fly.io will handle this via Procfile-like behavior)
     pass

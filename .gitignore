@@ -20,18 +20,6 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtual Environment
-venv/
-env/
-ENV/
-env.bak/
-venv.bak/
-
-# Environment variables
-.env
-.env.local
-.env.*.local
-
 
 # Logs
 *.log
