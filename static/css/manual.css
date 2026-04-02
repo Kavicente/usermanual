@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #333;
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.header {
+    background: rgba(255,255,255,0.95);
+    padding: 25px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    border-radius: 12px;
+}
+
+h1 {
+    text-align: center;
+    color: #1e3c72;
+    font-size: 36px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    padding: 18px 60px;
+    font-size: 19px;
+    font-weight: 600;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #555;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    background: #1e3c72;
+    color: white;
+}
+
+.content {
+    background: white;
+    border-radius: 15px;
+    padding: 45px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+    min-height: 75vh;
+}
+
+.bold-title {
+    font-weight: bold;
+    text-align: center;
+    font-size: 28px;
+    color: #1e3c72;
+    margin: 35px 0 20px;
+}
+
+.section-title {
+    font-weight: bold;
+    font-size: 24px;
+    color: #2a5298;
+    margin: 40px 0 15px;
+    text-align: center;
+}
+
+p {
+    font-size: 17.5px;
+    margin-bottom: 18px;
+    text-align: justify;
+}
+
+ul {
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+li {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+/* Sub Tabs Styling */
+.sub-tabs button {
+    padding: 14px 40px;
+    font-size: 17px;
+    font-weight: 600;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #555;
+}
+
+.sub-tabs button.active {
+    background: #1e3c72;
+    color: white;
+}
+
+.sub-content {
+    padding: 20px 10px;
+}
+
+/* Sign Up Tab - 2x2 Grid Layout */
+/* SIGN UP OPTIONS - 2x2 GRID */
+.signup-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.signup-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.signup-card {
+    background: #3498db;
+    color: white;
+    padding: 35px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    text-align: center;
+    transition: all 0.3s ease;
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+    background: #2a5298;
+}
+
+.signup-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+}

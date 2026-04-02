@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Now - User Manual</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manual.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='logo/alertnow.png') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Alert Now Emergency System</h1>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab(0)">User Manual</button>
+            <button class="tab-btn" onclick="showTab(1)">Sign Up</button>
+        </div>
+
+        <!-- USER MANUAL TAB -->
+        <div id="tab0" class="content">
+            <h1 class="bold-title">User’s Manual</h1>
+            
+            <p>The Alert Now system is a web-based and android application developed to support the reporting, distribution, and management of emergency alerts. It is intended for use by residents, barangay officials, and relevant government agencies of San Pablo City. Residents can submit reports of emergencies through the application, while barangay officials receive and assess these reports. The system enables barangay officials to redirect reports to appropriate government agencies when necessary.</p>
+
+            <h2 class="section-title">Purpose and Scope</h2>
+            <p>The system enables residents to submit reports of emergencies, including road accidents, fire incidents, health emergencies, and crime-related events. Barangay officials receive, assess, and respond to these reports. Government agencies, such as the City Disaster Risk Reduction and Management Office (CDRRMO), Bureau of Fire Protection (BFP), and Philippine National Police (PNP), are notified when necessary. The system supports real-time communication and maintains records of incidents and responses.</p>
+
+            <h2 class="section-title">User Role Access</h2>
+            <p>The system defines three user roles with specific functions. Residents submit emergency reports through the android or web interface, barangay officials receive, evaluate, and manage reports for their assigned barangay, and government agency representatives from CDRRMO, BFP, and  PNP receive redirected alerts and coordinate responses. Each role has a dedicated interface with functions limited to its responsibilities.</p>
+
+            <h2 class="section-title">Resident</h2>
+            <p>Individuals who submit emergency reports through the android or web interface.</p>
+
+            <h2 class="section-title">Barangay Official</h2>
+            <p>Personnel assigned to a specific barangay who receive, evaluate, and manage incoming reports.</p>
+
+            <h2 class="section-title">Government Agency</h2>
+            <p>Representatives from CDRRMO, BFP, and PNP who receive redirected alerts and provide appropriate response.</p>
+
+            <p style="margin-top:40px; text-align:center; font-style:italic;">
+                Each role has a dedicated interface with functions limited to its responsibilities.
+            </p>
+
+            <!-- NEW: USER GUIDE SECTION -->
+            <h2 class="bold-title" style="margin-top:50px;">User Guide</h2>
+
+            <!-- Sub Tabs: Resident | Barangay Official | Agency -->
+            <div class="sub-tabs" style="display:flex; justify-content:center; margin:25px 0; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+                <button class="sub-tab-btn active" onclick="showSubTab(0)">Resident</button>
+                <button class="sub-tab-btn" onclick="showSubTab(1)">Barangay Official</button>
+                <button class="sub-tab-btn" onclick="showSubTab(2)">Agency</button>
+            </div>
+
+            <!-- Resident Content -->
+            <div id="subtab0" class="sub-content">
+                <h3><strong>Step 1: Installing the app</strong></h3>
+                <p>To install the android application, the user performs the following steps:</p>
+                <ol>
+                    <li>Visit https://now-alert-o6l9.onrender.com using an android device.</li>
+                    <li>Open the QR scanner and scan the QR code displayed on the Sign Up Type section.</li>
+                    <li>Download and install the app by following the instructions on the device.</li>
+                </ol>
+
+                <h3><strong>Step 2: Resident Registration on Android App</strong></h3>
+                <p>To register as a resident on the android application, the user performs the following steps:</p>
+                <ol>
+                    <li>Open the installed application.</li>
+                    <li>On the starter page, click the Sign Up button to access the Sign Up Type page.</li>
+                    <li>On the Sign Up Type page, select Resident/Barangay Official to proceed to the Sign Up page.</li>
+                    <li>On the Sign Up page, fill in the required details and select Resident from the role dropdown.</li>
+                    <li>After completing the details, click Sign Up to finish registration and proceed to the Log In page.</li>
+                    <li>The account is successfully created.</li>
+                </ol>
+
+                <h3><strong>Step 3: Resident Log In on Android App</strong></h3>
+                <p>To log in as a resident on the android application, the user performs the following steps:</p>
+                <ol>
+                    <li>Open the application.</li>
+                    <li>On the starter page, click Log In to access the Log In Type page.</li>
+                    <li>On the Log In Type page, select Resident/Official to proceed to the Log In page.</li>
+                    <li>On the Log In page, enter the username and password created during registration.</li>
+                    <li>After entering the credentials, click Log In to access the resident page.</li>
+                    <li>The user has successfully logged in to the resident page.</li>
+                </ol>
+
+                <h3><strong>Step 4: Resident Submitting an Emergency Report</strong></h3>
+                <p>To submit an emergency report, the resident performs the following steps:</p>
+                <ol>
+                    <li>Open the android application and log in following the steps in step 3.</li>
+                    <li>On the resident page, click the upload image option.</li>
+                    <li>Capture an image and click OK.</li>
+                    <li>Click the Alert Now button.</li>
+                    <li>The alert is successfully sent.</li>
+                </ol>
+            </div>
+
+            <!-- Barangay Official Content -->
+            <div id="subtab1" class="sub-content" style="display:none;">
+                <h3><strong>Step 1: Installing the app</strong></h3>
+                <p>To install the android application, the user performs the following steps:</p>
+                <ol>
+                    <li>Visit https://now-alert-o6l9.onrender.com using an android device.</li>
+                    <li>Open the QR scanner and scan the QR code displayed on the Sign Up Type section.</li>
+                    <li>Download and install the app by following the instructions on the device.</li>
+                </ol>
+
+                <h3><strong>Step 2: Barangay Official Registration on Android App</strong></h3>
+                <p>To register as a barangay official on the android application, the user performs the following steps:</p>
+                <ol>
+                    <li>Follow the installation steps described in step 1.</li>
+                    <li>Open the installed application.</li>
+                    <li>On the starter page, click the Sign Up button to access the Sign Up Type page.</li>
+                    <li>On the Sign Up Type page, select Resident/Barangay Official to proceed to the Sign Up page.</li>
+                    <li>On the Sign Up page, fill in the required details, select Official from the role dropdown, and choose the position.</li>
+                    <li>After completing the details, click Sign Up to finish registration and proceed to the Log In page.</li>
+                    <li>The account is successfully created.</li>
+                </ol>
+
+                <h3><strong>Step 3: Barangay Official Log In on Android App</strong></h3>
+                <p>To log in as a barangay official on the android application, the user performs the following steps:</p>
+                <ol>
+                    <li>Open the application.</li>
+                    <li>On the starter page, click Log In to access the Log In Type page.</li>
+                    <li>On the Log In Type page, select Resident/Official to proceed to the Log In page.</li>
+                    <li>On the Log In page, enter the username and password created during registration.</li>
+                    <li>After entering the credentials, click Log In to access the barangay page.</li>
+                    <li>The user has successfully logged in to the barangay page.</li>
+                </ol>
+
+                <h3><strong>Step 4: Barangay Official Registration on Web Application</strong></h3>
+                <p>To register as a barangay official on the web application, the user performs the following steps:</p>
+                <ol>
+                    <li>Access https://now-alert-o6l9.onrender.com.</li>
+                    <li>On the starter page, click Barangay.</li>
+                    <li>Fill in the required details.</li>
+                    <li>After completing all details, click Sign Up.</li>
+                    <li>The account for the dashboard is successfully created.</li>
+                </ol>
+            </div>
+
+            <!-- Agency Content -->
+            <div id="subtab2" class="sub-content" style="display:none;">
+                <h3><strong>Step 1: Installing the app</strong></h3>
+                <p>To install the android application, the user performs the following steps:</p>
+                <ol>
+                    <li>Visit https://now-alert-o6l9.onrender.com using an android device.</li>
+                    <li>Open the QR scanner and scan the QR code displayed on the Sign Up Type section.</li>
+                    <li>Download and install the app by following the instructions on the device.</li>
+                </ol>
+
+                <h3><strong>Step 2: Agency Registration on Android App</strong></h3>
+                <p>To register as an agency on the android application, the user performs the following steps:</p>
+                <ol>
+                    <li>Follow the installation steps described in step 1.</li>
+                    <li>Open the installed application.</li>
+                    <li>On the starter page, click the Sign Up button to access the Sign Up Type page.</li>
+                    <li>On the Sign Up Type page, select Agencies.</li>
+                    <li>On the Agency Sign Up page, fill in the required details and select the appropriate role from the dropdown (CDRRMO, PNP, or BFP).</li>
+                    <li>After completing the details, click Sign Up to finish registration and proceed to the Agency Log In page.</li>
+                    <li>The account is successfully created.</li>
+                </ol>
+
+                <h3><strong>Step 3: Agency Log In on Android App</strong></h3>
+                <p>To log in as an agency on the android application, the user performs the following steps:</p>
+                <ol>
+                    <li>Open the application.</li>
+                    <li>On the starter page, click Log In to access the Log In Type page.</li>
+                    <li>On the Log In Type page, select Agencies to proceed to the Agency Log In page.</li>
+                    <li>On the Agency Log In page, enter the role, assigned municipality, and password created during registration.</li>
+                    <li>After entering the credentials, click Log In to access the agency page corresponding to the selected role.</li>
+                    <li>The user has successfully logged in to the agency page.</li>
+                </ol>
+
+                <h3><strong>Step 4: Agency Registration on Web Application</strong></h3>
+                <p>To register as an agency on the web application, the user performs the following steps:</p>
+                <ol>
+                    <li>Access https://now-alert-o6l9.onrender.com.</li>
+                    <li>On the starter page, click Agencies.</li>
+                    <li>Fill in the required details, including assigned municipality, province, and password.</li>
+                    <li>After completing all details, click Sign Up.</li>
+                    <li>The account for the dashboard is successfully created.</li>
+                </ol>
+
+                <h3><strong>Step 5: Agency Log In on Web Application</strong></h3>
+                <p>To log in as an agency on the web application, the user performs the following steps:</p>
+                <ol>
+                    <li>Access https://now-alert-o6l9.onrender.com.</li>
+                    <li>On the starter page, click Choose Account to access the Log In Type page.</li>
+                    <li>On the Log In Type page, select Agencies to proceed to the Agency Log In page.</li>
+                    <li>On the Agency Log In page, enter the role, assigned municipality, contact number, and password created during registration.</li>
+                    <li>After entering the credentials, click Log In to access the agency dashboard corresponding to the selected role.</li>
+                    <li>The user has successfully logged in to the agency dashboard.</li>
+                </ol>
+            </div>
+
+            <!-- NEW SECTION: RECEIVING AND DISTRIBUTING THE ALERT -->
+            <h2 class="bold-title" style="margin-top:60px; text-align:center;">Receiving and Distributing the Alert</h2>
+
+            <h3>1. Barangay Official Receiving and Managing Reports</h3>
+            <p>1. View incoming reports in the live alerts section.</p>
+            <p>2. For each report, select one of the following actions:</p>
+            <ul>
+                <li>Accept the report for further handling</li>
+                <li>Decline the report if it does not require action</li>
+                <li>Redirect the report to an appropriate government agency</li>
+            </ul>
+            <p>3. If the report is accepted, complete the response form by selecting relevant details from predefined options and submit the response.</p>
+
+            <h3>2. Agency Notification and Response</h3>
+            <p>When a barangay official redirects a report, the system automatically notifies the designated agency. Agency personnel follow these procedures:</p>
+            <ol>
+                <li>Access both the web application and android application.</li>
+                <li>Receive the redirected alert through the dashboard or android notification.</li>
+                <li>Review the report details, including location, description, and any attached photograph.</li>
+                <li>Acknowledge receipt and, when applicable, dispatch resources or provide further instructions.</li>
+                <li>The system maintains a record of all notifications and responses for reference.</li>
+            </ol>
+
+            <!-- SYSTEM REQUIREMENTS -->
+            <h2 class="bold-title" style="margin-top:60px; text-align:center;">System Requirements</h2>
+            <p>The system has the following requirements:</p>
+
+            <h3>Web Application</h3>
+            <ul>
+                <li>Processor: Intel Core i3-4030 or equivalent</li>
+                <li>Memory: 4.00 GB RAM</li>
+                <li>Hard Disk Drive: 500 GB</li>
+                <li>System Type: 32-bit operating system</li>
+            </ul>
+
+            <h3>Android Phone</h3>
+            <ul>
+                <li>Processor: Quad-core ARM Cortex-A53 1.3 GHz or higher</li>
+                <li>Memory: 2.00 GB RAM</li>
+                <li>Internal Storage: 16 GB</li>
+            </ul>
+        </div>
+
+       <!-- SIGN UP TAB - NOW WITH DYNAMIC SECTIONS -->
+        <div id="tab1" class="content" style="display:none;">
+            <h1 style="text-align:center; margin-bottom:30px; color:#1e3c72;">Choose Account Type to Sign Up</h1>
+
+            <!-- 4 CARDS -->
+            <div id="signup-cards" class="signup-options">
+                <div class="signup-card" onclick="showSignupSection('barangay')">
+                    <h3>Barangay Official</h3>
+                </div>
+                <div class="signup-card" onclick="showSignupSection('cdrrmo')">
+                    <h3>CDRRMO</h3>
+                </div>
+                <div class="signup-card" onclick="showSignupSection('bfp')">
+                    <h3>BFP</h3>
+                </div>
+                <div class="signup-card" onclick="showSignupSection('pnp')">
+                    <h3>PNP</h3>
+                </div>
+            </div>
+
+            <!-- Barangay Official Detailed Section -->
+            <div id="section-barangay" class="signup-section" style="display:none;">
+                <button onclick="backToCards()" class="back-btn">← Back</button>
+                <h2>Barangay Official Registration</h2>
+                
+                <label>Position:
+                    <select id="position" onchange="handlePositionChange()">
+                        <option value="">Select Position</option>
+                        <option value="Secretary">Secretary</option>
+                        <option value="Captain">Barangay Captain</option>
+                    </select>
+                </label>
+
+                <div id="secretary-note" style="display:none; color:#e74c3c; font-weight:bold;">
+                    I am signing up for Barangay Captain because he/she is away.
+                </div>
+
+                <label>Email:
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </label>
+
+                <button onclick="sendOTP()" id="sendOTP">Send OTP</button>
+
+                <div id="otp-section" style="display:none;">
+                    <label>Enter OTP:
+                        <input type="text" id="otp" maxlength="6" placeholder="6-digit OTP">
+                    </label>
+                    <button onclick="verifyOTPAndProceed()">Sign Up</button>
+                </div>
+            </div>
+
+            <!-- Placeholder sections for other roles (can be expanded later) -->
+            <div id="section-cdrrmo" class="signup-section" style="display:none;">
+                <button onclick="backToCards()" class="back-btn">← Back</button>
+                <h2>CDRRMO Registration</h2>
+                <p>Redirecting to agency signup...</p>
+                <button onclick="window.location.href='/signup_agency?type=cdrrmo'">Continue</button>
+            </div>
+            <div id="section-bfp" class="signup-section" style="display:none;">
+                <button onclick="backToCards()" class="back-btn">← Back</button>
+                <h2>BFP Registration</h2>
+                <p>Redirecting to agency signup...</p>
+                <button onclick="window.location.href='/signup_agency?type=bfp'">Continue</button>
+            </div>
+            <div id="section-pnp" class="signup-section" style="display:none;">
+                <button onclick="backToCards()" class="back-btn">← Back</button>
+                <h2>PNP Registration</h2>
+                <p>Redirecting to agency signup...</p>
+                <button onclick="window.location.href='/signup_agency?type=pnp'">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(n) {
+            document.querySelectorAll('.content').forEach((el, i) => {
+                el.style.display = i === n ? 'block' : 'none';
+            });
+            document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i === n);
+            });
+        }
+
+        function showSubTab(n) {
+            document.querySelectorAll('.sub-content').forEach((el, i) => {
+                el.style.display = i === n ? 'block' : 'none';
+            });
+            document.querySelectorAll('.sub-tab-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i === n);
+            });
+        }
+
+        // New dynamic signup card logic
+        function showSignupSection(type) {
+            document.getElementById('signup-cards').style.display = 'none';
+            document.querySelectorAll('.signup-section').forEach(sec => sec.style.display = 'none');
+            document.getElementById('section-' + type).style.display = 'block';
+        }
+
+        function backToCards() {
+            document.querySelectorAll('.signup-section').forEach(sec => sec.style.display = 'none');
+            document.getElementById('signup-cards').style.display = 'grid';
+        }
+
+        function handlePositionChange() {
+            const pos = document.getElementById('position').value;
+            const note = document.getElementById('secretary-note');
+            if (pos === 'Secretary') {
+                note.style.display = 'block';
+            } else {
+                note.style.display = 'none';
+            }
+        }
+
+        async function sendOTP() {
+            const email = document.getElementById('email').value.trim();
+            if (!email) {
+                alert("Please enter your email");
+                return;
+            }
+
+            // Check if email already exists
+            try {
+                const response = await fetch('/check_email_duplicate', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({email: email})
+                });
+
+                const data = await response.json();
+
+                if (data.exists) {
+                    alert("This email is already being used");
+                    return;
+                }
+            } catch (e) {
+                alert("Error checking email. Please try again.");
+                return;
+            }
+
+            // If no duplicate, proceed with OTP
+            const otpData = { email: email };
+
+            fetch('/send_otp', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(otpData)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 'sent') {
+                    document.getElementById('otp-section').style.display = 'block';
+                    alert("OTP sent to your email");
+                } else {
+                    alert("Failed to send OTP");
+                }
+            })
+            .catch(() => alert("Error sending OTP"));
+        }
+
+        // verifyOTPAndProceed function remains the same (redirect with email)
+        function verifyOTPAndProceed() {
+            const otp = document.getElementById('otp').value;
+            const email = document.getElementById('email').value;
+
+            if (otp.length === 6) {
+                // Proceed to SignUpPage with email
+                window.location.href = `/signup_barangay?email=${encodeURIComponent(email)}`;
+            } else {
+                alert("Please enter valid 6-digit OTP");
+            }
+        }
+    </script>
+</body>
+</html>

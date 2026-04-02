@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up Barangay</title>
+    <link rel="icon" href="{{ url_for('static', filename='logo/alertnow.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+</head>
+<body>
+    <div class="container">
+
+        <!-- LEFT: Empty (or add logo later) -->
+        <div class="left-panel" >
+            <h2>Barangay Registration</h2>
+            <img src="{{ url_for('static', filename='logo/app_icon.png') }}" alt="Alert Logo" class="alert-logo">
+            <h3>Have an Account?</h3>
+            <button type="button" onclick="window.location.href='/go_to_login_page'">Log In</button>
+            <h3>Or</h3>
+                <button type="button" class="button2"onclick="window.location.href='/choose_login_type'">Choose Account</button>
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div class="right-panel">
+            <form action="/signup_barangay" method="post" class="signup-form">
+                <h1 class="h1">Sign Up Barangay</h1>
+
+
+
+                <label>Email:
+                    <input type="email" name="email" value="{{ email }}" readonly style="background:#f0f0f0; color:#666;">
+                </label>
+
+                <select name="municipality" id="municipality" onchange="updateBarangayDropdown()" required class="select-role">
+                    <option value="">Select Assigned Municipality</option>
+                    <option value="San Pablo City">San Pablo City</option>
+                    <option value="Tiaong">Tiaong</option>
+                </select>
+
+                <select name="barangay" id="barangay" onchange="setLatLon()" required class="select-role">
+                    <option value="">Select Barangay</option>
+                </select>
+
+                <input type="text" name="province" id="province" placeholder="Province" readonly>
+
+                <input type="tel" name="contact_no" id="contact_no" placeholder="Contact Number" required>
+
+                <input type="hidden" name="lat" id="lat">
+                <input type="hidden" name="lon" id="lon">
+
+                
+                    <div class="password-wrapper">
+                        <input type="password" name="password" id="password" placeholder="Password" required>
+                        
+                        <span class="toggle-password" onclick="togglePassword()">Show</span>
+                    </div>
+
+                <button type="button" onclick="checkDuplicateAndSubmit()">Sign Up</button>
+                
+            </form>
+        </div>
+    </div>
+        <script>
+            function togglePassword() {
+                const passwordInput = document.getElementById('password');
+                const toggleText = document.querySelector('.toggle-password');
+                
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    toggleText.textContent = 'Hide';
+                } else {
+                    passwordInput.type = 'password';
+                    toggleText.textContent = 'Show';
+                }
+            }
+
+            const barangays = {
+                "San Pablo City": [],
+                "Tiaong": []
+            };
+
+            let latLonMap = {};
+
+            // Load coords.txt
+            fetch('/static/Barangay.csv')
+                .then(response => response.text())
+                .then(text => {
+                    const lines = text.split('\n');
+                    lines.forEach(line => {
+                        if (line.trim()) {
+                            const parts = line.split(',');
+                            if (parts.length >= 4) {
+                                const municipality = parts[0].trim();
+                                const barangay = parts[1].trim();
+                                
+                                const lat = parts[2].trim();
+                                const lon = parts[3].trim();
+
+                                if (municipality === "San Pablo City" || municipality === "Tiaong") {
+                                    barangays[municipality].push(barangay);
+                                    latLonMap[barangay] = { lat: lat, lon: lon };
+                                }
+                            }
+                        }
+                    });
+
+                    // Sort barangays
+                    barangays["San Pablo City"].sort();
+                    barangays["Tiaong"].sort();
+
+                    // Initial load
+                    updateBarangayDropdown();
+                });
+
+            function updateBarangayDropdown() {
+                const municipalitySelect = document.getElementById('municipality');
+                const barangaySelect = document.getElementById('barangay');
+                const provinceInput = document.getElementById('province');
+
+                const selectedMunicipality = municipalitySelect.value;
+
+                // Clear barangay options
+                barangaySelect.innerHTML = '<option value="">Select Barangay</option>';
+
+                if (selectedMunicipality) {
+                    barangays[selectedMunicipality].forEach(bgy => {
+                        const option = document.createElement('option');
+                        option.value = bgy;
+                        option.textContent = bgy;
+                        barangaySelect.appendChild(option);
+                    });
+
+                    // Set province
+                    if (selectedMunicipality === "San Pablo City") {
+                        provinceInput.value = "Laguna";
+                    } else if (selectedMunicipality === "Tiaong") {
+                        provinceInput.value = "Quezon Province";
+                    }
+                } else {
+                    provinceInput.value = "";
+                }
+            }
+
+            function setLatLon() {
+                const barangaySelect = document.getElementById('barangay');
+                const selectedBarangay = barangaySelect.value;
+
+                if (selectedBarangay && latLonMap[selectedBarangay]) {
+                    document.getElementById('lat').value = latLonMap[selectedBarangay].lat;
+                    document.getElementById('lon').value = latLonMap[selectedBarangay].lon;
+                } else {
+                    document.getElementById('lat').value = "";
+                    document.getElementById('lon').value = "";
+                }
+            }
+
+            // Numbers only for contact
+            document.addEventListener('DOMContentLoaded', () => {
+                document.getElementById('contact_no').addEventListener('input', function(e) {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                });
+            });
+
+           // NEW: Check duplicate before submitting + show popup on SignUpPage.html
+        async function checkDuplicateAndSubmit() {
+            const barangay = document.getElementById('barangay').value;
+            const contact_no = document.getElementById('contact_no').value;
+            const email = document.querySelector('input[name="email"]').value;
+
+            if (!barangay || !contact_no || !email) {
+                alert("Please select a Barangay, enter Contact Number, and provide Email");
+                return;
+            }
+
+            try {
+                const response = await fetch('/check_duplicate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ barangay: barangay, contact_no: contact_no })
+                });
+
+                const data = await response.json();
+
+                if (data.exists) {
+                    // POP UP WINDOW MESSAGE as requested
+                    alert("This Email, Barangay and Contact Number already being used");
+                } else {
+                    // No duplicate → submit the form normally
+                    document.getElementById('signupForm').submit();
+                }
+            } catch (error) {
+                alert("This Email, Barangay and Contact Number already being used. Please try again.");
+            }
+        } 
+    </script>
+</body>
+</html>

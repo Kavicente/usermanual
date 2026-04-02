@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: user-manual
+    runtime: python
+    buildCommand: |
+      pip install --upgrade pip setuptools wheel
+      pip install -r requirements.txt
+    startCommand: gunicorn usermanual:app --worker-class eventlet -w 1
+    env: python
+    plan: free

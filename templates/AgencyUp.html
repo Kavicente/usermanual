@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up Agencies</title>
+    <link rel="icon" href="{{ url_for('static', filename='logo/alertnow.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+</head>
+<body>
+    
+
+    <div class="container">
+
+        <div class="left-panel">
+            <h2>Agency Registration</h2>
+            <img src="{{ url_for('static', filename='logo/app_icon.png') }}" alt="Alert Logo" class="alert-logo">
+            <h3>Have an Account?</h3>
+            <button class="button" onclick="window.location.href='/login_agency'">Log In</button>
+            <h3>Or</h3>
+            <button class="button2" onclick="window.location.href='/choose_login_type'">Choose Account</button>
+
+        </div>
+
+    <div class="right-panel">
+    <form action="/signup_agency" method="post" class="signup-form">
+        <h1 class="h1">Select Agency To Sign Up</h1>
+        <label>Role: 
+            <select name="role" id="role" class="select-role">
+                <option value="cdrrmo">CDRRMO</option>
+                <option value="pnp">PNP</option>
+                <option value="bfp">BFP</option>
+                <option value="health">City Health</option>
+                <option value="hospital">Hospital</option>
+            </select>
+        </label><br>
+        <label id="hospital-label" style="display: none;">Assigned Hospital: 
+            <select name="assigned_hospital" id="assigned_hospital" class="dropdown-role">
+                <option value="SPC District Hospital">SPC District Hospital</option>
+                <option value="San Pablo Colleges Medical Center">San Pablo Colleges Medical Center</option>
+                <option value="Community General Hospital">Community General Hospital</option>
+                <option value="Immaculate Conception Hospital">Immaculate Conception Hospital</option>
+                <option value="SPC General Hospital">SPC General Hospital</option>
+                <option value="San Pablo Doctors Hospital">San Pablo Doctors Hospital</option>
+                <option value="St. Francis and Paul General Hospital">St. Francis and Paul General Hospital</option>
+            </select>
+        </label><br>
+        <label>Assigned Municipality: <input type="text" name="municipality" required></label><br>
+        <label>Contact Number: <input type="tel" name="contact_no" required></label><br>
+        <label class="password-label">
+                    Password: 
+                    <div class="password-wrapper">
+                        <input type="password" name="password" id="password" required>
+                        <span class="toggle-password" onclick="togglePassword()">Show</span>
+                    </div>
+                </label>
+        <button type="submit">Sign Up</button>
+        
+        
+    </form>
+</div>
+</div>
+    <script>
+
+        function togglePassword() {
+                const passwordInput = document.getElementById('password');
+                const toggleText = document.querySelector('.toggle-password');
+                
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    toggleText.textContent = 'Hide';
+                } else {
+                    passwordInput.type = 'password';
+                    toggleText.textContent = 'Show';
+                }
+            }
+
+        document.getElementById('role').addEventListener('change', function() {
+            const hospitalLabel = document.getElementById('hospital-label');
+            if (this.value === 'hospital') {
+                hospitalLabel.style.display = 'block';
+            } else {
+                hospitalLabel.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #224380;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.h1{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 30px;
+    color: #000000;
+}
+.select-role {
+    width: 100%; 
+    padding: 8px; 
+    margin: 8px 0; 
+    box-sizing: border-box; 
+    background-color: #66c2ff; 
+    border: 1px solid #000000ff; 
+    border-radius: 4px; 
+    text-align: center;
+}
+.select-role:hover {
+    transform: scale(1.05);
+}
+form {
+    background-color:#deeaee; 
+    color: #000000;
+    margin-top: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+    max-width: 450px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #000000;
+    font-weight: bold;
+}
+
+form input {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color: #66c2ff;
+    color: #000000;
+    position:relative;
+    left: 0;
+    right:0;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin-left: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 30%;
+    display: block; /* Ensure each button takes full width and stacks vertically */
+    margin: 10px auto;
+}
+
+
+
+form .button2 {
+    background-color: #66c2ff;
+    color: #000000;
+    left: 0;
+    right:0;
+    font-size: 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 30%;
+    display: block; /* Ensure each button takes full width and stacks vertically */
+    margin: 10px auto;
+}
+
+form .button3 {
+    background-color: #66c2ff;
+    color: #000000;
+    left: 0;
+    right:0;
+    border: none;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 50%;
+    display: block; /* Ensure each button takes full width and stacks vertically */
+    margin: 10px auto;
+}
+
+form button:hover {
+    background-color: #66c2ff;
+    transform: scale(1.05);
+}
+
+
+
+.dropdown-role {
+    width: 100%; 
+    padding: 8px; 
+    margin: 8px 0; 
+    box-sizing: border-box; 
+    background-color: #66c2ff; 
+    border: 1px solid #000000ff; 
+    border-radius: 4px; 
+    text-align: center;
+}
+.dropdown-role:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background-color: #66c2ff;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #66c2ff;
+    transform: scale(1.05);
+}
+
+
+
+
+@media (max-width: 1440px) {
+    form {
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 30%;
+    }
+}
